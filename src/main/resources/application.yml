@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+spring:
+  redis:
+    host: 121.89.218.108
+    port: 6379
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/library?characterEncoding=utf8&useUnicode=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  servlet: #修改默认传输文件大小
+    multipart:
+      max-request-size: 120MB #运行请求传递文件大小最大为10M（默认）
+      max-file-size: 120MB #运行服务器可以处理的最大文件大小为1M（默认）
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/rgzs/ggg/mapper/xml/*.xml
+  type-aliases-package: com.rgzs.ggg.entity
+
+#配置阿里云 OSS
+aliyun:
+  oss:
+    file:
+      #配置oss地区
+      endpoint: oss-cn-hangzhou.aliyuncs.com
+      #配置oss id
+      keyid: LTAI5tQ12PDu6WTUSwknBXaK
+      #配置oss密钥
+      keysecret: i7A70DdyIqpTcNt62cc1HTiUujCOky
+      #配置oss bucket名
+      bucketname: nucstudy
